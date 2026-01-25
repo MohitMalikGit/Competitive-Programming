@@ -18,38 +18,6 @@ public class Main {
 		}
 		
 		
-		class Solution {
-			static long[][] nCr = new long[61][61];
-
-		    static void buildNCR() {
-		        for (int i = 0; i <= 60; i++) {
-		            nCr[i][0] = nCr[i][i] = 1;
-		            for (int j = 1; j < i; j++) {
-		                nCr[i][j] = nCr[i - 1][j - 1] + nCr[i - 1][j];
-		            }
-		        }
-		    }
-
-		    public static long comb(int n, int r) {
-		        if (r < 0 || r > n) return 0;
-		        return nCr[n][r];
-		    }
-		    public long nthSmallest(long n, int k) {
-		    	buildNCR();
-		    	long ans = 0;
-		    	for( int i = k; i >1;i--) {
-		    		for( int j = 0; j <= 49 ;j++) {
-		    			if( comb(j+1 , k) >= n) {
-		    				
-		    			}
-		    		}
-		    	}
-		    	
-		    	return ans;
-		    	
-		    }
-		}
-		
 		
 		/*
 		 * Accept that you maybe thinking wrong

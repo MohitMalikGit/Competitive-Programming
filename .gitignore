@@ -1,0 +1,21 @@
+# ===== Eclipse =====
+.metadata/
+.settings/
+.project
+.classpath
+
+# ===== Java =====
+*.class
+*.jar
+*.war
+*.ear
+
+# ===== Build =====
+bin/
+target/
+
+# ===== Logs =====
+*.log
+
+# ===== OS =====
+.DS_Store
