@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-public class Main {
+public class A {
 	 	static long mod = (long)(1e9+7);
 		static FastReader sc = new FastReader();
 		static PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
@@ -14,7 +14,30 @@ public class Main {
 		
 		
 		static void run() {
+			int n=  sc.nextInt(), h = sc.nextInt(), l = sc.nextInt();
+			// pair them 
 			
+			int arr[] = new int[n];
+			boolean done[] = new boolean[n];
+			for( int i= 0 ;i< n;i++) {
+				arr[i]  = sc.nextInt();
+			}
+			mysort(arr);
+			int i = 0; int j = n-1;
+			int ans =0 ;
+			int x = Math.max(h, l);
+			int y = Math.min(h, l);
+			while( i < j) {
+				if( arr[i] <= y && arr[j] <= x) {
+					i++; 
+					j--;
+					ans++;
+				}
+				else {
+					j--;
+				}
+			}
+			out.println(ans);
 		}
 		
 		
@@ -22,14 +45,14 @@ public class Main {
 		/*
 		 * Accept that you maybe thinking wrong
 		 * have patience	
-		 * Read the question carefully
+		 * Read the question carefully 
 		 * Look at the bigger picture
 		 * Do Mathematical calculations
 		 * use the hints
 		 * Read the question again
 		 * think of binary search
 		 * look at test cases
-		 * do significant case work 
+		 * do significant case work 	
 		 */
 		
 
