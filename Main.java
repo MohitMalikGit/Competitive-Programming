@@ -14,12 +14,91 @@ public class Main {
 		
 		
 		static void run() {
+			/*
+			 * 10101010
+			 * 01010101
+			 * 
+			 * 1010100010101
+			 * 
+			 * 00000000
+			 * 
+			 * 4
+			 * 0000
+			 * 
+			 * 1010
+			 * 
+			 * 0101
+			 * 
+			 * 
+			 * 00000
+			 * 
+			 * 10101
+			 * 
+			 * 01010
+			 * 
+			 *  min (n/2   or (n+1)/2)
+			 * 
+			 * 
+			 * 
+			 * 0000101001
+			 * 
+			 * 0001000001
+			 * 
+			 * 100001 (number of zero-1)/2
+			 * 
+			 * 
+			 * 
+			 * 
+			 * 
+			 * 0
+			 * 
+			 * 1 
+			 * 
+			 * 
+			 * 00 
+			 *
+			 * 
+			 */
+			
+			int n = sc.nextInt();
+			char a[] = sc.next().toCharArray();
+			int ans = 0;
+			if( n == 1 ) {
+				out.println(1);
+				return;
+			}
+			for( int i =0 ; i< n;i++) {
+				if( a[i] == '0') {
+					int temp = i-1;
+					int count_0 = 1;
+					while(i+1 < n && a[i+1] == '0') {
+						count_0++;
+						i++;
+					}
+					if( temp >=0 ) count_0--;
+					if( i+1 < n) count_0--;
+					
+					int loc = Math.max(0, count_0);
+					
+					
+					ans+= Math.min(loc/2, (loc+1)/2);
+					if( loc == 1) ans++;
+					
+				}
+				else ans++;
+			}
+			out.println(ans);
 			
 		}
 		
 		
 		
 		/*
+		 * 0000
+		 * 1001001001
+		 * 000000000
+		 * 010101010
+		 * 101010101
 		 * Accept that you maybe thinking wrong
 		 * have patience	
 		 * Read the question carefully 
