@@ -20,6 +20,7 @@ public class Main {
 		
 		
 		/*
+		 * question ki aukaat k hisaab se soch
 		 * Accept that you maybe thinking wrong
 		 * have patience	
 		 * Read the question carefully 
