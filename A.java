@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-public class Main {
+public class A {
 	 	static long mod = (long)(1e9+7);
 		static FastReader sc = new FastReader();
 		static PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
@@ -14,7 +14,6 @@ public class Main {
 		
 		
 		static void run() {
-			int n = sc.nextInt();
 			
 		}
 		

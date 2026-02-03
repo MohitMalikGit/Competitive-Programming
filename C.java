@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-public class Main {
+public class C {
 	 	static long mod = (long)(1e9+7);
 		static FastReader sc = new FastReader();
 		static PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
@@ -14,7 +14,154 @@ public class Main {
 		
 		
 		static void run() {
-			int n = sc.nextInt();
+			/*
+			 * 
+			 * we care about mex , we care about min 
+			 * mex is 
+			 * 
+			 * 
+			 * t = 100 , q = 100 , n  = 100 
+			 * 
+			 * answer is always possible
+			 * 
+			 * l      r -> c = 1 , make them all k 
+			 * k , k , k , k 
+			 * 
+			 * we do not care about the indexes not inclued any of the ranges in my q 
+			 * 
+			 * now some could be overlappping and some could be not if i have non overlapping 
+			 * 
+			 *  _ _ _ _ _ -> than its good for c == 1 just make every one is k 
+			 *  
+			 *  _ _ _ _ _ -> for this make 0 , 1 2 ... k-1 .. k+1 k+1 like this
+			 *  
+			 *  
+			 *  
+			 *  
+			 *  now if they overlap
+			 *  
+			 *  	 full overlap , side overlap
+			 *  
+			 *  	can i satisfy all somehow?
+			 *  
+			 *  if all are of same type then 
+			 *  
+			 *  
+			 *  
+			 *  agr ksisi c = 2 could not be inside c = 
+			 *  
+			 *  
+			 *      5 
+			 *      
+			 *      case study
+			 *      
+			 *      overlapping
+			 *      
+			 *      
+			 *      overlap 
+			 *      
+			 *      0  _ _ 
+			 *        _ _ _ 
+			 *        
+			 *        what could be the possibility
+			 *        
+			 *        if one is c1 = 1 , c2 = 1 , cool 
+			 *        c1 = 2 , c2 = 2
+			 *        
+			 *        mex = k 0 ... k-1 sould be present and k should not be 
+			 *        
+			 *        
+			 *        let focus on constaints again 
+			 *        O(q2) could definatlhy work 
+			 *        
+			 *        {    } 
+			 *        
+			 *        
+			 *        0 1 2 4 
+			 *                3 3
+			 *                no constiant on max 
+			 *                
+			 *                if my segent belong to c = 1 then it is of no use to case = 2
+			 *                
+			 *                
+			 *                
+			 *                
+			 *                i should not let my c = 1 to be annoyhting to c = 2
+			 *                
+			 *                so for every range for c = 1 there must exist some i which is not 
+			 *                include in any c = 2 , just make it as k and rest ans 1e9
+			 *                
+			 *                
+			 *                now this will not distureb c = 2
+			 *                
+			 *                c = 2 first of all we nned to assign 
+			 *                
+			 *                whatever left after eliminatign all of c = 1 the length for such will alwasy be 
+			 *                
+			 *                atleast k to have 0 .... k-1 
+			 *                
+			 *                ok now how will i decide i can repeast 
+			 *                
+			 *                
+			 *                {     {    }
+			 *                
+			 *                if any index belong to both c = 1 and = 2 then it is 1e9
+			 *                
+			 *                has to be 
+			 *                
+			 *                if it eblong to c = 1 then keep it as k 
+			 *                
+			 *                and if it belong to k  = 2 
+			 *                ? 
+			 *                
+			 *                
+			 *                 2 2 2 2 2 ,2 2 2, 2 2 2 2
+
+			 *                
+			 *                
+			 *                i know the asnwer exist 
+			 *                
+			 *                
+			 *                
+			 *                0 .. k 
+			 *                
+			 *                0 1 2 3 
+			 *                    0 1 2 3
+			 *                    
+			 *                  3 2 0 1 2 3 0
+			 *                  
+			 *                  0 1 2 3 0 1 2 3 0 1 2 
+			 *                  
+			 *                  
+			 *                  
+			 *                  
+			 *                    2 2 2  2 2 2 2 2
+			 *                    
+			 *                    01230
+			 *                
+			 *                
+			 *                
+			 */
+			
+			
+			int n = sc.nextInt(), k = sc.nextInt() ,q  = sc.nextInt();
+			
+			boolean arr[][] = new boolean[n+1][2];
+			
+			while(q-- > 0) {
+				int c = sc.nextInt()-1, l = sc.nextInt() , r  =sc.nextInt();
+				for( int i = l ;i<= r ;i++) arr[i][c] = true;
+			}
+			
+			for( int i = 1 ;i <= n;i++) {
+				if(arr[i][0] && arr[i][1]) out.print((k+1) + " ");
+				else if( arr[i][0]) out.print(k + " ");
+				else if( arr[i][1]) out.print((i%k) + " ");
+				else out.print(1 + " ");
+			}
+			out.println();
+			
+			
 			
 		}
 		
