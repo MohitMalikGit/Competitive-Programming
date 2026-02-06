@@ -14,7 +14,7 @@ public class Main {
 		
 		
 		static void run() {
-			
+			// A, B me trick hoti h bhai jyada mt soch
 		}
 		
 		
