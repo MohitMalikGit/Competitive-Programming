@@ -14,13 +14,13 @@ public class Main {
 		
 		
 		static void run() {
-			// A, B me trick hoti h bhai jyada mt soch
+			
 		}
 		
 		
 		
 		/*
-		 * question ki aukaat k hisaab se soch
+		 * do not overcomplicate when not required
 		 * Accept that you maybe thinking wrong
 		 * have patience	
 		 * Read the question carefully 
