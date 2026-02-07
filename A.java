@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-public class Main {
+public class A {
 	 	static long mod = (long)(1e9+7);
 		static FastReader sc = new FastReader();
 		static PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
@@ -15,15 +15,7 @@ public class Main {
 		
 		static void run() {
 			// A, B me trick hoti h bhai jyada mt soch
-			int n = sc.nextInt(), a= sc.nextInt();
-			int arr[]= new int[n]; int count = 0;
-			for( int i =0 ; i< n;i++) arr[i] = sc.nextInt();
-			int fst = calculateScoreForB(arr , a+1 , a , n);
-			int scnd = calculateScoreForB(arr , a-1, a, n);
-			if( fst >= scnd) {
-				out.println(a+1);
-			}
-			else out.println(a-1);
+			
 			
 		}
 		
@@ -43,20 +35,6 @@ public class Main {
 		 * do significant case work 
 		 */
 		
-
-
-		private static int calculateScoreForB(int[] arr, int b, int a, int n) {
-			// TODO Auto-generated method stub
-			int s = 0;
-			for( int i =0 ; i< n;i++) {
-				int abs1 = Math.abs(arr[i] - a); int abs2 = Math.abs(arr[i]-b);
-				if( abs1> abs2) s++;
-			}
-			
-			return s;
-			
-		}
-
 
 
 		static class DSU {

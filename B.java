@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-public class Main {
+public class B {
 	 	static long mod = (long)(1e9+7);
 		static FastReader sc = new FastReader();
 		static PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
@@ -15,21 +15,59 @@ public class Main {
 		
 		static void run() {
 			// A, B me trick hoti h bhai jyada mt soch
-			int n = sc.nextInt(), a= sc.nextInt();
-			int arr[]= new int[n]; int count = 0;
-			for( int i =0 ; i< n;i++) arr[i] = sc.nextInt();
-			int fst = calculateScoreForB(arr , a+1 , a , n);
-			int scnd = calculateScoreForB(arr , a-1, a, n);
-			if( fst >= scnd) {
-				out.println(a+1);
+			/*
+			 * 
+			 * 	
+			 * if > < this is the case then answer is -1
+			 * if two consecutive ** can be seend then also the answer is -1
+			 * 
+			 * 
+			 * if there is even one start and the length is great
+			 */
+			
+			char a[] = sc.next().toCharArray();
+			int n = a.length;
+			if( n == 1) {
+				out.println(1);
+				return;
 			}
-			else out.println(a-1);
+			int greater_poss = Integer.MAX_VALUE; int less_poss = Integer.MIN_VALUE;
+			int count_star = 0; int greater_count = 0; int less_count = 0;
+			for( int i= 0 ;i < n;i++) {
+				if( a[i] == '*') count_star++;
+				else if( a[i] == '>') {
+					greater_count++;
+					greater_poss = Math.min(greater_poss, i);
+				}
+				else if( a[i] == '<') {
+					less_count++;
+					less_poss = Math.max(less_poss , i);
+				}
+				
+			}
+			
+			if( greater_poss <= less_poss || count_star > 1) {
+				out.println(-1);
+				return;
+			}
+			for( int i = 0 ;i< n;i++) {
+				if( a[i] == '*') {
+					if( greater_poss < i || less_poss > i) {
+						out.println(-1); return;
+					}
+				}
+			}
+			
+			int ans =Math.max(greater_count , less_count )+ count_star;
+			out.println(ans);
+			
 			
 		}
 		
 		
 		
 		/*
+		 * dont overcomplicate the solution
 		 * question ki aukaat k hisaab se soch
 		 * Accept that you maybe thinking wrong
 		 * have patience	
@@ -43,19 +81,6 @@ public class Main {
 		 * do significant case work 
 		 */
 		
-
-
-		private static int calculateScoreForB(int[] arr, int b, int a, int n) {
-			// TODO Auto-generated method stub
-			int s = 0;
-			for( int i =0 ; i< n;i++) {
-				int abs1 = Math.abs(arr[i] - a); int abs2 = Math.abs(arr[i]-b);
-				if( abs1> abs2) s++;
-			}
-			
-			return s;
-			
-		}
 
 
 
