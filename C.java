@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-public class Main {
+public class C {
 	 	static long mod = (long)(1e9+7);
 		static FastReader sc = new FastReader();
 		static PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
@@ -15,39 +15,39 @@ public class Main {
 		
 		static void run() {
 			/*
+			 * 26 letters at max 
 			 * 
-			 * target:   to print the number of black indexes
+			 * every index could have at most 26 diff values 
+			 * find the one which repeats
 			 * 
-			 * if the current index is B i m gonna have to update it 
 			 * 
-			  if the last is an A then we just perform what we gotta perform 
-			 * if the last one is a B 
+			 * 
+			 * for every character 
+			 * try to find the max distance betweeen them ok 
+			 * and that max distance will be length 
+			 * 
+			 * if its equal = n then print in any order 
+			 * 
+			 * if not 
+			 * 
+			 * 
+			 * a b c x z , and everyting should be  
+			 * 
+			 * that does not mean anythign 
+			 * find somethign else
+			 * 
+			 * 
+			 * find 
+			 * a -> every 2 
+			 * 
+			 * b -> every 5 
+			 * 
+			 * c -> every n 
+			 * 
+			 * wrong approach
+			 * 
 			 * 
 			 */
-			
-			TreeSet<Long> ts = new TreeSet<>();
-			int n = sc.nextInt(), m = sc.nextInt();
-			char arr[]  = sc.next().toCharArray();
-			for( int i =0 ; i< m;i++) ts.add(sc.nextLong());
-			Long curr = 1L;
-			for( int i =0 ;i < n;i++) {
-				if( i-1 >= 0 && arr[i-1] == 'B') {
-					while(ts.contains(curr))curr++;
-				}
-				if( arr[i] == 'A')curr++;
-				else {
-					curr++;
-					while(ts.contains(curr))curr++;
-				}
-
-				ts.add(curr);
-				
-				
-			}
-			out.println(ts.size());
-			for( long x : ts) out.print(x + " ");
-			out.println();
-			
 		}
 		
 		

@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-public class Main {
+public class B {
 	 	static long mod = (long)(1e9+7);
 		static FastReader sc = new FastReader();
 		static PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
@@ -14,39 +14,18 @@ public class Main {
 		
 		
 		static void run() {
-			/*
-			 * 
-			 * target:   to print the number of black indexes
-			 * 
-			 * if the current index is B i m gonna have to update it 
-			 * 
-			  if the last is an A then we just perform what we gotta perform 
-			 * if the last one is a B 
-			 * 
-			 */
+			int n =sc.nextInt();
 			
-			TreeSet<Long> ts = new TreeSet<>();
-			int n = sc.nextInt(), m = sc.nextInt();
-			char arr[]  = sc.next().toCharArray();
-			for( int i =0 ; i< m;i++) ts.add(sc.nextLong());
-			Long curr = 1L;
+			long x= sc.nextLong() , y =sc.nextLong();
+			long ans = 0; long sum = 0;
+			long a[] = new long[n]; for( int i =0 ;i < n;i++)a[i] = sc.nextLong();
 			for( int i =0 ;i < n;i++) {
-				if( i-1 >= 0 && arr[i-1] == 'B') {
-					while(ts.contains(curr))curr++;
-				}
-				if( arr[i] == 'A')curr++;
-				else {
-					curr++;
-					while(ts.contains(curr))curr++;
-				}
-
-				ts.add(curr);
-				
-				
+				sum+=(a[i]/x)*y;
 			}
-			out.println(ts.size());
-			for( long x : ts) out.print(x + " ");
-			out.println();
+			for( int i =0 ; i< n;i++) {
+				ans = Math.max( ans , a[i] + sum - (a[i]/x)*y);
+			}
+			out.println(ans);
 			
 		}
 		
