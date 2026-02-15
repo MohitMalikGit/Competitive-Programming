@@ -14,7 +14,15 @@ public class Main {
 		
 		
 		static void run() {
-			
+			/*
+			 * input: 
+			 * target: 
+			 * key observation: 
+			 * 
+			 * 
+			 * 
+			 * 
+			 */
 		}
 		
 		
