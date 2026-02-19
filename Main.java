@@ -16,13 +16,42 @@ public class Main {
 		static void run() {
 			/*
 			 * input: 
-			 * target: 
+			 * target:  min value of max - min 
 			 * key observation: 
 			 * 
 			 * 
 			 * 
 			 * 
 			 */
+			
+			TreeSet<Integer> ts = new TreeSet<>();
+			int n = sc.nextInt();
+			int a[] = new int[n];
+			for( int i = 0 ;i < n;i++) a[i] = sc.nextInt();
+			mysort(a);
+			for( int i =0  ;i< n-1 ;i++) {
+				int temp = a[i];
+				while( temp*2 < a[n-1]) {
+					temp*=2;
+				}
+				ts.add(temp);
+			}
+			
+			int ans = Integer.MAX_VALUE;
+			for( int x : ts) {
+				int max = -1;
+				for( int i =0 ; i< n;i++) {
+					int temp = a[i];
+					while( temp < x) {
+						temp*=2;
+					}
+					max = Math.max(max, temp);
+				}
+				
+				ans =  Math.min(ans ,max-x);
+			}
+			out.println(ans);
+		
 		}
 		
 		
